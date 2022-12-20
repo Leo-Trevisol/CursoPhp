@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    padding: 30px;
+
+}
+
+fieldset {
+    border: 2px solid #555555;
+    padding: 40px 30px;
+    border-radius: 12px;
+}
+
+legend {
+    padding: 0 5px;
+    text-align: center;
+    color: #F1F1F1;
+    font-weight: 700;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+}
+
+legend i {
+    font-size: 1.4em;
+    color: #F59F06;
+    margin-right: 5px;
+}
+
+.ds_none {
+    display: none;
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    width: 100%;
+    margin: 0 0 40px 0;
+    position: relative;
+}
+
+label>span {
+    color: cornsilk;
+    position: absolute;
+    top: -12px;
+    left: 8px;
+    background-color: #1A1A1A;
+    padding: 0 5px;
+}
+
+input,
+select {
+    border: 2px inset #555555;
+    padding: 12px;
+    width: 100%;
+    background: none;
+    outline: none;
+    border-radius: 4px;
+    color: #EEEEEE;
+    box-shadow: 0px 0px 4px #000000;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url(../images/select.png);
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+option {
+    background-color: #F45563;
+}
+
+#anos {
+    color: white;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.alert {
+    border-color: red;
+    box-shadow: 0 0 5px 2px red;
+}
+
+::placeholder {
+    color: #555555;
+}
+
+/*############
+### BUTTONS ###
+ ############*/
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1.3em;
+    border: 3px inset rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8), inset 4px 4px 20px 0px rgba(0, 0, 0, 0.3);
+    background: rgb(222, 219, 219);
+    background: linear-gradient(180deg, rgb(210, 210, 210) 0%, rgb(235, 238, 235) 35%, rgb(238, 237, 237) 100%);
+    font-weight: 500;
+    width: 100%;
+}
+
+.btn-rounded {
+    border-radius: 40px;
+}
+
+.btn-green {
+    background: rgb(22, 181, 86);
+    background: linear-gradient(180deg, rgb(7, 128, 67) 0%, rgb(74, 217, 95) 35%, rgba(27, 226, 97, 1) 100%);
+}
+
+.btn-blue {
+    background: rgb(8, 170, 199);
+    background: linear-gradient(180deg, rgb(2, 98, 126) 0%, rgb(62, 186, 231) 35%, rgb(43, 234, 228) 100%);
+}
+
+.btn-red {
+    background: rgb(217, 7, 25);
+    background: linear-gradient(180deg, rgb(217, 7, 25) 0%, rgb(234, 42, 60) 35%, rgb(253, 66, 77) 100%);
+}
+
+mark {
+    padding: 4px 8px;
+    color: #333333;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, .2);
+}
+
+.form_load {
+    margin-right: 8px;
+}
+
+/* TRIGGER Personaliza mensagens do sistema */
+.trigger {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #333333;
+    font-size: 1em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.trigger b {
+    font-size: 1em;
+    color: black !important;
+}
+
+.trigger p {
+    margin-top: 8px;
+}
+
+.trigger_success {
+    background-color: #00B494;
+}
+
+.trigger_info {
+    background-color: #0E96E5;
+}
+
+.trigger_alert {
+    background-color: #FAAD50;
+}
+
+.trigger_error {
+    background-color: #F45563;
+}
+
+.trigger_none {
+    margin-bottom: 0;
+}
+
+/*########## MEDIA QUERIES ########### **********************************/
+/* 544 */
+@media (max-width: 34em) {}
+
+/* 544 até  768 */
+@media (min-width: 34em) and (max-width: 48em) {}
+
+@media (min-width: 48em) and (max-width: 64em) {}
+
+@media (min-width: 60em) {
+    .flex-box {
+        flex-direction: row;
+    }
+
+    label {
+        margin: 10px 12px;
+    }
+
+    .btn {
+        margin-top: 50px;
+    }
+
+    mark {
+        padding: 2px 10px;
+    }
+
+}
+
+@media (min-width: 64em) and (max-width: 80em) {}

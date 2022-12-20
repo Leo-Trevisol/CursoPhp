@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    padding: 50px 0;
+}
+
+form {
+    display: table;
+    background-color: #f1f1f1;
+    border: 2px solid #888888;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+form > label,
+form > input,
+form > select {
+    float: left;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+input, select, textarea{
+    border-radius: 4px;
+    border: 1px solid #888888;
+}
+form > label {
+    clear: both;
+    width: 25%;
+}
+
+input[readonly] {
+    background: #E0E0E0;
+    border: 1px solid #B0B0B0;
+}
+
+form > input[type='submit'],
+form > button {
+    margin-left: 25%;
+    clear: both;
+}
+
+.btn{
+    padding: 8px 16px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #555;
+    color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2), inset 0px 0px 6px 2px rgba(0,0,0,0.15);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin-top: 15px !important;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;clear: both;
+}
+
+.btn > img{
+    margin-right: 8px;
+}
+
+.btn-large{
+    padding: 12px 22px;
+    font-size: 1.2em;
+}
+.btn-xlarge{
+    padding: 16px 24px;
+    font-size: 1.4em;
+}
+
+.btn-green{
+    background: #2CA242;
+    border: 1px solid #2CC046;
+}
+.btn-ligth-gray{
+    background: #D9D7D7;
+    border: 1px solid #BE7AFA;
+    color: #2a2a2a;
+    transition: all ease-in-out .5s;
+}
+.btn-ligth-gray:hover{
+    background: #2a2a2a;
+    border: 1px solid #BE7AFA;
+    color: #BE7AFA;
+    transition: all ease-in-out .5s;
+}
