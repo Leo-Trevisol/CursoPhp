@@ -41,10 +41,10 @@ function update_person($person)
     return $result;
 }
 
-function create_person($person)
+function create_person($arrInsert)
 {
     $conn = db_connection();
-    $sql = "INSERT INTO people (id, name, address, district, phone, mail, city, state, cep) VALUES ( '{$person['id']}', '{$person['name']}','{$person['address']}', '{$person['district']}', '{$person['phone']}', '{$person['mail']}','{$person['city']}', '{$person['state']}', '{$person['cep']}')";
+    $sql = "INSERT INTO people ({$arrInsert['fields']}) VALUES ({$arrInsert['values']})";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
@@ -55,15 +55,14 @@ function get_next_id()
 {
     $conn = db_connection();
     $result = mysqli_query($conn, 'SELECT max(id) as next FROM people');
-    $next = (int)mysqli_fetch_assoc($result)['next'] + 1;
     mysqli_close($conn);
-    return $next;
+
+    return (int)mysqli_fetch_assoc($result)['next'] + 1;
 }
 
 function db_connection()
 {
     $conn = mysqli_connect('localhost', 'root', '', 'books');
     mysqli_set_charset($conn, 'utf8mb4');
-
     return $conn;
 }

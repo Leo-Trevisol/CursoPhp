@@ -18,7 +18,7 @@ if (!empty($_REQUEST['action'])) {
     $conn = mysqli_connect('localhost', 'root', '', 'books');
     //define o charset para utf8mb
     mysqli_set_charset($conn, 'utf8mb4');
-    $person = $_POST;
+
     if ($_REQUEST['action'] == 'edit') {
         $id =  filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         if ($id) {
@@ -34,13 +34,19 @@ if (!empty($_REQUEST['action'])) {
     } elseif ($_REQUEST['action'] == 'save') {
         //UPDATE : ATUALIZAR
         if (!empty($_POST['id'])) {
-            $result = update_person($person);
+            extract($_POST);
+            $sql = "UPDATE people SET name = '{$name}', address = '{$address}', district = '{$district}',
+            phone = '{$phone}', mail = '{$mail}', city = '{$city}', state = '{$state}', cep = '{$cep}' WHERE id = {$id} ";
+            $result = mysqli_query($conn, $sql);
             //CREATE: CADASTRA NOVA PESSOA
         } else {
-            $person['id'] = get_next_id();
-           
+            $_POST['id'] = get_next_id();
+            $arrInsert = [
+                'fields' => implode(', ', array_keys($_POST)),
+                'values' => "'" . implode("', '", array_values($_POST)) . "'"
+            ];
 
-            $result = create_person($person);
+            $result = create_person($arrInsert);
         };
         print ($result) ? '<div class="trigger trigger-sucess">Registro salvo com sucesso!</div>' : mysqli_error(
             $conn
