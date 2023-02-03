@@ -151,7 +151,7 @@ $(document).ready(function () {
 
     if ($('.trigger-sucess').length) {
         setTimeout(function () {
-            window.location.href = 'http://localhost/php_books/v4/person_form.php'
+            window.location.href = 'http://localhost/Curso-Php/php_class/php_books/v4/person_read.php'
         }, 2000);
     }
 

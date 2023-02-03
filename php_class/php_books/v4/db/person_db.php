@@ -55,9 +55,9 @@ function get_next_id()
 {
     $conn = db_connection();
     $result = mysqli_query($conn, 'SELECT max(id) as next FROM people');
+    $next = (int)mysqli_fetch_assoc($result)['next'] + 1;
     mysqli_close($conn);
-
-    return (int)mysqli_fetch_assoc($result)['next'] + 1;
+    return $next;
 }
 
 function db_connection()

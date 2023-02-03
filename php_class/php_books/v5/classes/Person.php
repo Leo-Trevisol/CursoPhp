@@ -11,19 +11,33 @@ class Person{
         $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         if(empty($person['id'])){
-            $resul = $conn->query("select max(id) as next from person");
+            $resul = $conn->query("select max(id) as next from people");
             $row = $result->fetch();
 
             $person['id'] = (int)$row['next'] + 1;
 
-            $sql = "insert into people (id, name, cep, address, district, phone, mail, city, state) values ( '{$person['id']}', '{$person['name']}','{$person['address']}', '{$person['district']}', '{$person['phone']}', '{$person['mail']}','{$person['city']}', '{$person['state']}', '{$person['cep']}')";
+            $sql = "insert into people (id, name, cep, address, district, phone, mail, city, state) values
+             ( '{$person['id']}', '{$person['name']}','{$person['address']}', '{$person['district']}', '{$person['phone']}', '{$person['mail']}','{$person['city']}', '{$person['state']}', '{$person['cep']}')";
+        }else{
+            $sql = "Update people set people.name = '{$person['name']}, 
+            people.cep = '{$person['cep']},
+            people.address = '{$person['address']},
+            people.district = '{$person['district']},
+            people.phone = '{$person['phone']},
+            people.mail = '{$person['mail']},
+            people.city = '{$person['city']},
+            people.state = '{$person['state']},
+            people.id = '{$person['id']}
+            ";
         }
     }
 
-    public static function find($id){
-        $conn = new PDO('my')
-    }
+ return $conn-> query($sql);
 
+}
+
+public static function find(){
+    
 }
 
 ?>
