@@ -43,7 +43,7 @@
         $conn = mysqli_connect('localhost', 'root', '', 'books');
         //define o charset para utf8mb
         mysqli_set_charset($conn, 'utf8mb4');
-        $result = mysqli_query($conn, 'SELECT max(id) as next FROM person');
+        $result = mysqli_query($conn, 'SELECT max(id) as next FROM people');
         $next = (int)mysqli_fetch_assoc($result)['next'] + 1;
         mysqli_close($conn);
         

@@ -2,6 +2,19 @@
     
     class Person
     {
+
+        private static $conn; public static function getConnection(){
+            if(empty(self::$conn)){
+                $conn = parse_ini_file('config/books.ini');
+            self::$conn = new PDO("mysql:host={$connection['host']}; port={$connection['port']} dbname={$connection['name']}", 
+            "{$connection['user']}", "{$connection['pass']}",
+             [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAME UTF8']);
+
+            self:: $conn-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+
+            return self::$conn;
+        }
         
         public static function save($person)
         {
