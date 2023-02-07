@@ -50,7 +50,7 @@ $(function () {
 
     if ($('.trigger-sucess').length) {
         setTimeout(function (){
-            window.location.href='http://localhost/Curso-Php/php_class/php_books/v6/person_read.php';
+            window.location.href='http://localhost/Curso-Php/php_class/php_books/v7/person_read.php';
         }, 2000);
     }
 
