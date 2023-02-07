@@ -56,5 +56,5 @@
         ],
         $form
     );
-    print ($form);
+    print $form;
 ?>

@@ -56,5 +56,6 @@ if (!empty($_REQUEST['action'])) {
 
 $form = file_get_contents('html/form.html');
 
-$form = str_replace(['{id}', '{name}', '{district}', '{phone}', '{mail}', '{city}', '{state}', '{cep}', '{address}'], [$id, $name, $district, $phone, $mail, $city, $state, $cep, $address], $form);
+$form = str_replace(['{id}', '{name}', '{district}', '{phone}', '{mail}', '{city}', '{state}', '{cep}', '{address}'],
+ [$id, $name, $district, $phone, $mail, $city, $state, $cep, $address], $form);
 echo $form;
