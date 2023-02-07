@@ -27,13 +27,34 @@ class PersonForm{
 
 
 
-    public function edit($id){
+    public function edit($param){
         try{
             $id = (int) $param['id'];
             $person = Person::find ($id);
             $this->data = $person;
         }catch(Exception $e ){
-            print $e;
+            print $e->getMessage();
+        }
+    }
+
+
+    public function save($param){
+        try{
+            Person::save($param);
+            $this->data = $param;
+            print "<div class ' trigger trigger-sucess center ' <p> Pessoa salva com sucesso! </p> </div>";
+        }catch(Exception $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function delete($param){
+        try{
+            $param = (int) $param['id'];
+            $person = Person::delete ($param);
+            $this->data = $person;
+        }catch(Exception $e ){
+            print $e->getMessage();
         }
     }
 

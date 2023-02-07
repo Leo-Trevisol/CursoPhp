@@ -15,37 +15,37 @@
 
 <body>
 
-<form action="person_form.php?action=save" class="form_capitalize" method="post" enctype="multipart/form-data">
+<form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post" enctype="multipart/form-data">
 
     <label for="">Código</label>
-    <input type="number" name="id" value="{id}" readonly style="width: 30%">
+    <input type="number" name="id"  id='id' value="{id}" readonly style="width: 30%">
 
     <label for="">Nome</label>
-    <input type="text" name="name" value="{name}" required style="width: 50%">
+    <input type="text" name="name"  id='name' value="{name}" required style="width: 50%">
 
     <label for="">CEP</label>
-    <input type="text" name="cep" class="wc_getCep formCep" value="{cep}" required style="width: 50%">
+    <input type="text" name="cep"  id='cep' class="wc_getCep formCep" value="{cep}" required style="width: 50%">
 
     <label for="">Endereço</label>
-    <input type="text" name="address" class="cep_address" value="{address}" required style="width: 50%">
+    <input type="text" name="address"  id='address' class="cep_address" value="{address}" required style="width: 50%">
 
     <label for="">Bairro</label>
-    <input type="text" name="district" class="cep_district" value="{district}" required style="width: 50%">
+    <input type="text" name="district" id='district' class="cep_district" value="{district}" required style="width: 50%">
 
     <label for="">Telefone</label>
-    <input type="text" name="phone" class="formPhone" value="{phone}" required style="width: 50%">
+    <input type="text" name="phone"  id='mail' class="formPhone" value="{phone}" required style="width: 50%">
 
     <label for="">E-mail</label>
-    <input type="email" name="mail" value="{mail}" required style="width: 50%">
+    <input type="email" name="mail"  id='mail' value="{mail}" required style="width: 50%">
 
     <label for="">Cidade</label>
-    <input type="text" name='city' class="cep_city" value="{city}" required style='width: 50%'>
+    <input type="text" name='city'  id='city' class="cep_city" value="{city}" required style='width: 50%'>
 
     <label for="">UF</label>
-    <input type="text" name='state' class="cep_uf" value="{state}" required style='width: 50%'>
+    <input type="text" name='state' id='state' class="cep_uf" value="{state}" required style='width: 50%'>
 
     <label class="actions">
-        <a href="person_read.php" class="btn btn-ligth-gray">
+        <a href="index.php?class=PersonList" class="btn btn-ligth-gray">
             <img src='images/icons8-cancel-50.svg' style='width:25px'>
             VOLTAR</a>
 

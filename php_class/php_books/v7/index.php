@@ -9,7 +9,7 @@
 
 
 
-$classe = $_REQUEST['class'];
+$classe = $_REQUEST['class'];   
 $method = isset($_REQUEST['method']) ? $_REQUEST['method'] : null;
 
 if(class_exists($classe)){
