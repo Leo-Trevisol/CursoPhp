@@ -48,9 +48,11 @@ $(function () {
         });
     }
 
+    
+
     if ($('.trigger-sucess').length) {
         setTimeout(function (){
-            window.location.href='http://localhost/Curso-Php/php_class/php_books/v7/person_read.php';
+            window.location.href= 'index.php?class=PersonList';
         }, 2000);
     }
 
