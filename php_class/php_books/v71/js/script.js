@@ -1,41 +1,4 @@
 $(function () {
-
-    //############## GET CNPJ + Validando com function validarCNPJ
-    $('.wc_getCnpj').on('blur', function () {
-        if (!validarCNPJ(this.value)) {
-            Trigger("<div class='trigger trigger_ajax trigger_error' >CNPJ Informado é inválido.</div>")
-            $(".wc_getCnpj").focus();
-            clearCnpjData();
-        } else {
-            var cnpj = $(this).val().replace('-', '').replace('/', '').replace('.', '').replace('.', '');
-
-            if (cnpj.length === 14) {
-                $.getJSON("https://www.receitaws.com.br/v1/cnpj/" + cnpj + '/?callback=?', function (data) {
-
-                    if (!data.erro) {
-                        $('.wc_nome').val(data.nome);
-                        $('.wc_fantasia').val(data.fantasia);
-                        $('.wc_telefone').val(data.telefone);
-                        $('.wc_logradouro').val(data.logradouro);
-                        $('.wc_numero').val(data.numero);
-                        $('.wc_complemento').val(data.complemento);
-                        $('.wc_bairro').val(data.bairro);
-                        $('.wc_cep').val(data.cep.replace('.', ''));
-                        $('.wc_municipio').val(data.municipio);
-                        $('.wc_uf').val(data.uf);
-                        $('.wc_country').val('31');
-
-                    } else {
-                        Trigger("<div class='trigger trigger_ajax trigger_error' >CNPJ não encontrado na Receita Federal.</div>");
-                        $(".wc_getCnpj").focus();
-                        clearCnpjData();
-                    }
-                }, 'json');
-            }
-
-        }
-    });
-
        //############## GET CEP
     $('.wc_getCep').on('change', function () {
         var cep = $(this).val().replace('-', '').replace('.', '');
@@ -84,6 +47,8 @@ $(function () {
             });
         });
     }
+
+    
 
     if ($('.trigger-sucess').length) {
         setTimeout(function (){
@@ -168,6 +133,7 @@ $(function () {
 
 //############## ON READY
 $(document).ready(function () {
+
     //Coloca asterisco Vermelho nos Inputs required
     $(":not(input[typeof='radio'], input[typeof='checkbox']):required").prev().prepend('<b class="font_red">* </b>');
 
@@ -212,7 +178,6 @@ $(document).ready(function () {
 
 });
 
-
 /*TEXT FUNCTION*/
 function ucfirst(str, force) {
     str = force ? str.toLowerCase() : str;
@@ -247,81 +212,4 @@ function capitalize(texto) {
 
 function lowercase(str) {
     return str.toLowerCase();
-}
-
-
-function validarCNPJ(cnpj) {
-
-    cnpj = cnpj.replace(/[^\d]+/g, '');
-
-    if (cnpj == '') return false;
-
-    if (cnpj.length != 14) return false;
-
-    // Elimina CNPJs invalidos conhecidos
-    if (cnpj == "00000000000000" || cnpj == "11111111111111" || cnpj == "22222222222222" || cnpj == "33333333333333" || cnpj == "44444444444444" || cnpj == "55555555555555" || cnpj == "66666666666666" || cnpj == "77777777777777" || cnpj == "88888888888888" || cnpj == "99999999999999") return false;
-
-    // Valida DVs
-    tamanho = cnpj.length - 2
-    numeros = cnpj.substring(0, tamanho);
-    digitos = cnpj.substring(tamanho);
-    soma = 0;
-    pos = tamanho - 7;
-    for (i = tamanho; i >= 1; i--) {
-        soma += numeros.charAt(tamanho - i) * pos--;
-        if (pos < 2) pos = 9;
-    }
-    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(0)) return false;
-
-    tamanho = tamanho + 1;
-    numeros = cnpj.substring(0, tamanho);
-    soma = 0;
-    pos = tamanho - 7;
-    for (i = tamanho; i >= 1; i--) {
-        soma += numeros.charAt(tamanho - i) * pos--;
-        if (pos < 2) pos = 9;
-    }
-    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(1)) return false;
-
-    return true;
-}
-
-function clearCnpjData() {
-    $('.wc_nome, .wc_fantasia, .wc_telefone, .wc_logradouro, .wc_numero, .wc_complemento, .wc_bairro, .wc_cep, .wc_municipio, .wc_uf').val('');
-}
-
-function Validation(field) {
-
-    $("input:not([name='" + field + "'])").css({
-        border: '1px solid green', boxShadow: 'none'
-    });
-    $("[name='" + field + "']").css({
-        border: '1px solid red', boxShadow: '0px 0px 8px red'
-    }).focus();
-}
-
-//############## MODAL MESSAGE
-function Trigger(Message) {
-    TriggerClose();
-    $('body').before("<div class='trigger_modal'>" + Message + "</div>");
-
-    $('.trigger_ajax').fadeIn().append("<div style='background-color: rgba(0,0,0,0.3); heigth: 2px; border-radius: 4px; padding: 4px; width: 1px; position: absolute; left: 0; bottom: 0;'></div>");
-
-    $('.trigger_ajax div:last-child').animate({
-        width: '+=98%'
-    }, 5000, 'swing');
-
-    setTimeout(function () {
-        $('.trigger_ajax').slideUp('fast', function () {
-            $(this).remove();
-        });
-    }, 5000);
-}
-
-function TriggerClose() {
-    $('.trigger_ajax').fadeOut('fast', function () {
-        $(this).remove();
-    });
 }
