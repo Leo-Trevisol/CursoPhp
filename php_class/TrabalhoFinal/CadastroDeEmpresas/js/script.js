@@ -87,7 +87,7 @@ $(function () {
 
     if ($('.trigger-sucess').length) {
         setTimeout(function (){
-            window.location.href= 'index.php?class=PersonList';
+            window.location.href= 'index.php?class=CompanyList';
         }, 2000);
     }
 

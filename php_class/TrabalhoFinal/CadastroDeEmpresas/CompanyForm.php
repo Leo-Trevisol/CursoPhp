@@ -43,7 +43,7 @@
             try {
                 Company::save($param);
                 $this->data = $param;
-                print "<div class='trigger trigger-sucess center'><p>Pessoa salva com Sucesso!</p></div>";
+                print "<div class='trigger trigger-sucess center'><p>Empresa salva com Sucesso!</p></div>";
             } catch (Exception $e) {
                 print $e->getMessage();
             }

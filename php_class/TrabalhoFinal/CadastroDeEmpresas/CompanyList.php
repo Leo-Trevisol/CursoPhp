@@ -26,17 +26,17 @@
         {
             try {
                 $rows = '';
-                foreach (Company::all() as $person) {
+                foreach (Company::all() as $company) {
                     $row = file_get_contents('html/row.html');
                     
                     $row = str_replace(
                         ['{id}', '{name}', '{address}','{district}','{phone}'],
                         [
-                            $person['id'],
-                            $person['name'],
-                            $person['address'],
-                            $person['district'],
-                            $person['phone']
+                            $company['company_id'],
+                            $company['company_name'],
+                            $company['company_address'],
+                            $company['company_district'],
+                            $company['company_phone']
                         ],
                         $row
                     );
