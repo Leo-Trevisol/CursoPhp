@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atualizar Empresas</title>
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/maskinput.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+<form action="index.php?class=CompanyForm&method=save" class="form_capitalize" method="post"
+      enctype="multipart/form-data">
+
+    <label for="id">Código</label>
+    <input type="number" name="id" id="id" value="{id}" readonly style="width: 30%">
+
+    <label for="name">Nome</label>
+    <input type="text" name="name" id="name" class="wc_nome" value="{name}" required style="width: 50%">
+
+    <label for="fantasy">Fantasia</label>
+    <input type="text" name="fantasy" id="fantasy" class="wc_fantasia" value="{fantasy}" required style="width: 50%">
+
+    <label for="cnpj">Cnpj</label>
+    <input type="text" name="cnpj" id="cnpj" class="wc_getCnpj" value="{cnpj}" required style="width: 50%">
+
+    <label for="cep">Cep</label>
+    <input type="text" name="cep" id="cep" class="wc_cep" value="{cep}" required style="width: 50%">
+
+    <label for="address">Endereco</label>
+    <input type="text" name="address" id="address" class="wc_logradouro" value="{address}" required style="width: 50%">
+
+    <label for="number">Numero</label>
+    <input type="text" name="number" id="number"  class="wc_numero"value="{number}" required style="width: 50%">
+
+    <label for="complement">Complemento</label>
+    <input type="text" name='complement' id="complement"  class="wc_complemento" value="{complement}" required style='width: 50%'>
+
+    <label for="district">Distrito</label>
+    <input type="text" name='district' id="district"  class="wc_bairro" value="{district}" required style='width: 50%'>
+
+    <label for="city">Cidade</label>
+    <input type="text" name='city' id="city"  class="wc_municipio" value="{city}" required style='width: 50%'>
+
+    <label for="state">Estado</label>
+    <input type="text" name='state' id="state"  class="wc_uf" value="{state}" required style='width: 50%'>
+
+    <label for="phone">Telefone</label>
+    <input type="text" name='phone' id="phone"  value="{phone}" required style='width: 50%'>
+
+    <label for="mail">E-mail</label>
+    <input type="text" name='mail' id="mail" value="{mail}" required style='width: 50%'>
+
+    <label class="actions">
+        <a href="index.php?class=CompanyList" class="btn btn-ligth-gray">
+            <img src='images/icons8-cancel-50.svg' style='width:25px'>
+            VOLTAR</a>
+
+        <button class='btn btn-ligth-gray' type='submit'>
+            <img src='images/icons8-settings-50.svg' style='width:25px'>
+            SALVAR
+        </button>
+    </label>
+</form>
+
+</body>
+</html>
