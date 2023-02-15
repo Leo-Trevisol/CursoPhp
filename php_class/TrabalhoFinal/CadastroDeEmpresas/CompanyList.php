@@ -32,11 +32,11 @@
                     $row = str_replace(
                         ['{id}', '{name}', '{address}','{district}','{phone}'],
                         [
-                            $company['company_id'],
-                            $company['company_name'],
-                            $company['company_address'],
-                            $company['company_district'],
-                            $company['company_phone']
+                            $company['id'],
+                            $company['name'],
+                            $company['address'],
+                            $company['district'],
+                            $company['phone']
                         ],
                         $row
                     );

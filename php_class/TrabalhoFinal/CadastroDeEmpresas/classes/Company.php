@@ -24,14 +24,14 @@
         {
             $conn = self::getConnection();
             if (empty($company['id'])) {
-                $result = $conn->query("SELECT max(company_id) as next FROM company");
+                $result = $conn->query("SELECT max(id) as next FROM company");
                 $row = $result->fetch();
                 $company['id'] = (int)$row['next'] + 1;
                 $sql = "INSERT INTO company
-                                    (company_id, company_name, company_fantasy, company_cnpj, company_cep, company_address, company_number, company_complement, company_district, company_city, company_state, company_phone, company_mail) VALUES
+                                    (id, name, fantasy, cnpj, cep, address, number, complement, district, city, state, phone, mail) VALUES
                                     (:id, :name, :fantasy, :cnpj, :cep, :address, :number, :complement, :district, :city, :state, :phone, :mail)";
             } else {
-                $sql = "UPDATE company SET company_name = :name, company_fantasy = :fantasy, company_cnpj = :cnpj, company_cep = :cep, company_address = :address, company_number =:number, company_complement = :complement, company_district = :district, company_city = :city, company_state = :state, company_phone = :phone, company_mail = :mail";
+                $sql = "UPDATE company SET name = :name, fantasy = :fantasy, cnpj = :cnpj, cep = :cep, address = :address, number = :number, complement = :complement, district = :district, city = :city, state = :state, phone = :phone, mail = :mail";
             }
             
             $result = $conn->prepare($sql);
@@ -64,7 +64,7 @@
         public static function find($id)
         {
             $conn = self::getConnection();
-            $result = $conn->query("SELECT * FROM company WHERE company_id='{$id}'");
+            $result = $conn->query("SELECT * FROM company WHERE id='{$id}'");
             
             return $result->fetch();
         }
@@ -72,7 +72,7 @@
         public static function delete($id)
         {
             $conn = self::getConnection();
-            $result = $conn->query("DELETE FROM company WHERE company_id='{$id}'");
+            $result = $conn->query("DELETE FROM company WHERE id='{$id}'");
             
             return $result;
         }
