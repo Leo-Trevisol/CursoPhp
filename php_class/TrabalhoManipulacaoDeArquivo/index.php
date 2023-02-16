@@ -2,8 +2,9 @@
 
 
 
+$getcontents = __DIR__ . "/listaTelefonica.txt";
 
-$getcontents = __DIR__ . "/arquivo2.txt";
+
 
 if(file_exists($getcontents) && is_file($getcontents)){
       echo file_get_contents($getcontents);
