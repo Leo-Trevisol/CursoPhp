@@ -2,15 +2,15 @@
 
 $lista = __DIR__ . "/listaTelefonica.txt";
 
-if(file_exists($lista) && (is_file($lista))){
-   if (isset($_POST['name']) &&isset($_POST['number']) ) {
-       file_put_contents($lista, "{$_REQUEST['name']} - {$_REQUEST['number']}" .PHP_EOL);
-   }
-}else{
+if(file_exists($lista) || (is_file($lista))){
   
-      file_put_contents($lista, "{$_REQUEST['name']} - {$_REQUEST['number']}" .PHP_EOL, FILE_APPEND);
+      $data = "{$_REQUEST['name']} - {$_REQUEST['number']}" .PHP_EOL;
+       file_put_contents($lista, $data, FILE_APPEND);
 }
 
+if(!file_exists($lista) || !is_file($lista)){
+   $fileopen = fopen($lista, "w");
+}
 ?>
  
  <!DOCTYPE html>
@@ -20,9 +20,11 @@ if(file_exists($lista) && (is_file($lista))){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de telefones</title>
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="cs.css">
 </head>
 <body>
+
+<div id="container">
 
     <h1>Cadastro de telefones</h1>
 
@@ -36,6 +38,25 @@ if(file_exists($lista) && (is_file($lista))){
 
     </form>
 
+    <div class="dois">
+
+    <?php
+
+$read = fopen($lista, 'r');
+  // $read = fopen(__DIR__ . "../listaTelefonica.txt", "r");
+   while (($linha = fgets($lista)) !== false ){
+      if(!feof($lista)){
+     
+         
+      $line = explode(" - ", fgets($read));
+        echo " <div class='line mesmo'> {$line['0']} - {$line['1']} </div>";
+      }
+    }
+  
+  ?>
+</div>
+   </div>
     
 </body>
 </html>
+

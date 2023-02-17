@@ -65,13 +65,12 @@ fullStackPHPClassSession("get, put content", __LINE__);
         }
 
         $name = $_POST['name'];
-$number = $_POST['number'];
+        $number = $_POST['number'];
 
 if(!file_exists($file) || !is_file($file)){
     $fileopen = fopen($file, "w");
     fwrite($fileopen, $name . PHP_EOL . $number);
     fclose($fileopen);
-
 }
     
 
