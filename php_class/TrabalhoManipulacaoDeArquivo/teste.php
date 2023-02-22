@@ -43,15 +43,22 @@ if(!file_exists($lista) || !is_file($lista)){
     <?php
 
 $read = fopen($lista, 'r');
+$filee=file('listaTelefonica.txt');
+
+foreach($filee as $line)
+{
+ // $line = explode(" - ", fgets($filee));
+   echo $line.'<br>';
+};
   // $read = fopen(__DIR__ . "../listaTelefonica.txt", "r");
-   while (($linha = fgets($lista)) !== false ){
-      if(!feof($lista)){
+  //  while (($lista)){
+  //     if(!feof($lista)){
      
          
-      $line = explode(" - ", fgets($read));
-        echo " <div class='line mesmo'> {$line['0']} - {$line['1']} </div>";
-      }
-    }
+  //     $line = explode(" - ", fgets($read));
+  //       echo " <div class='line mesmo'> {$line['0']} - {$line['1']} </div>";
+  //     }
+  //   }
   
   ?>
 </div>

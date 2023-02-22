@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/fullstackphp/fsphp.php';
+require __DIR__ . '/../../../fullstackphp/fsphp.php';
 fullStackPHPClassName("03.07 - Manipulação de arquivos");
 
 $file = __DIR__ . '/arquivo.txt';
