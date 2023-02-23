@@ -30,12 +30,18 @@ var_dump(
     ]
     );
 
-    if(!file_exists($file) || !is_dir($file)){
+    if(!file_exists($file) && !is_dir($file)){
         fopen($file, "w");
     }else{
         copy($file, $folder . "/" . basename($file));
         var_dump(filemtime($file), filemtime(__DIR__ . "/uploads/file.txt"));
+
+          rename( $file, __DIR__ . "/uploads/" . time().".".pathinfo($file)
+    ['extension']);
+
     }
+
+  
 
 
 /*
@@ -43,7 +49,30 @@ var_dump(
  */
 fullStackPHPClassSession("remover e deletar", __LINE__);
 
-// mdkir(__DIR__ . "/remove");
+$folder1 = __DIR__ . "/remove";
 
-// $dirRemove = __DIR__ . "/remove";
-// $dirFile = array_diff(scandir($dirRemove))
+if(!file_exists($folder1) || !is_dir($folder1)){
+    mkdir($folder1, 777); 
+}else{
+   var_dump(scandir($folder1));
+}
+
+$dirRemove = __DIR__ . "/remove";
+$dirFile = array_diff(scandir($dirRemove), ['.', '..'] );
+$dirCount = count($dirFile);
+
+var_dump($dirFile, $dirCount);
+
+//APAGA OS ARQUIVOS 1 POR 1
+
+if($dirCount >= 1 ){
+    foreach($dirFile as $file){
+        echo basename($file);
+        unlink($dirRemove . "/" . basename($file));
+        
+    }
+//RMDIR REMOVE O DIRETORIO SE ESTIVER VAZIO
+   
+}else{
+    rmdir($dirRemove);
+}
