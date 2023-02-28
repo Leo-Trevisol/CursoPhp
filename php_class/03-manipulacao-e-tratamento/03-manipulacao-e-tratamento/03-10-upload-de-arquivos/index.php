@@ -54,7 +54,7 @@ var_dump(
                 }else{
                     echo "<p class = 'trigger warning' > TIPO DE ARQUIVO NAO PERMITIDO </p>";
                 }
-            }elseif($getpost){
+            }elseif($getpost && !$_FILES){
                 echo "<p class = 'trigger warning' > ARQUIVO MUITO GRANDE  </p>";
             }else{
                 echo "<p class = 'trigger accept' > SELECIONE O ARQUIVO ANTES DE ENVIAR </p>";
