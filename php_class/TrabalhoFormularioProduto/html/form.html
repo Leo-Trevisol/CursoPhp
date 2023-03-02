@@ -6,16 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Atualizar Pessoas</title>
+   
     <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/form2.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/maskinput.js"></script>
     <script src="js/script.js"></script>
+    <style>
+        
+    </style>
 </head>
 
 <body>
 
-</body>
+
 
 <div class="topo">
     <div class="topo1">
@@ -58,6 +64,59 @@
         
     </div>
    
+</div>
+
+<div id="container">
+
+    <form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post"
+    enctype="multipart/form-data">
+
+    <div class="labelinput">
+  <label for="name">Nome</label>
+  <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
+    </div>
+    <div class="labelinput">
+  <label for="cep">CEP</label>
+  <input type="text" name="cep" id="cep" class="wc_getCep formCep" value="{cep}" required style="width: 50%">
+</div>
+<div class="labelinput">
+  <label for="address">Endereço</label>
+  <input type="text" name="address" id="address" class="cep_address" value="{address}" required style="width: 50%">
+</div>
+<div class="labelinput">
+  <label for="district">Bairro</label>
+  <input type="text" name="district" id="district" class="cep_district" value="{district}" required style="width: 50%">
+</div>
+<div class="labelinput">
+  <label for="phone">Telefone</label>
+  <input type="text" name="phone" id="phone" class="formPhone" value="{phone}" required style="width: 50%">
+</div>
+<div class="labelinput">
+  <label for="mail">E-mail</label>
+  <input type="email" name="mail" id="mail" value="{mail}" required style="width: 50%">
+</div>
+<div class="labelinput">
+  <label for="city">Cidade</label>
+  <input type="text" name='city' id="city" class="cep_city" value="{city}" required style='width: 50%'>
+</div>
+<div class="labelinput">
+  <label for="state">UF</label>
+  <input type="text" name='state' id="state" class="cep_uf" value="{state}" required style='width: 50%'>
+</div>
+  <label class="actions">
+      <a href="index.php?class=PersonList" class="btn btn-ligth-gray">
+          <img src='images/icons8-cancel-50.svg' style='width:25px'>
+          VOLTAR</a>
+
+      <button class='btn btn-ligth-gray' type='submit'>
+          <img src='images/icons8-settings-50.svg' style='width:25px'>
+          SALVAR
+      </button>
+  </label>
+</form>
+
+
+
 </div>
 
 

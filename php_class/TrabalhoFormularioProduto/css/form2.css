@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 10px;
+    background-color: rgba(255, 255, 0, 0.144);
+}
+
+.bthamb{
+    padding: 0px;
+    background-color: rgba(0, 0, 255, 0.589);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.topo{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+ 
+
+}
+
+.topo2{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-variant: small-caps;
+    font-size: 20px;
+}
+
+.btPorta{
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.534);
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+}
+
+#menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+}
+
+.menu1{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    font-variant: small-caps;
+
+}
+
+.menu2{
+    display: flex;
+    gap: 20px;
+}
+
+.menutit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: start;
+}
+
+.menusubtit{
+    margin-left: 5px;
+}
+
+.btvariacao, .btvernosite{
+   display: flex;
+    width: 200px;
+    height: 40px;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px black;
+   
+}
+
+.btvariacao{
+    background-color: rgba(0, 128, 255, 0.614);
+}
+
+.btvernosite{
+    background-color: rgba(8, 169, 21, 0.69);
+}
+
+.form_capitalize{
+    background-color: white;
+    border: 0px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.labelinput{
+    display: flex;
+    flex-direction: column;
+}
