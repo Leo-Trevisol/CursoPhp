@@ -21,8 +21,6 @@
 
 <body>
 
-
-
 <div class="topo">
     <div class="topo1">
         <button class="bthamb">
@@ -74,51 +72,108 @@
     <div class="form1">
 
     <div class="labelinput">
-  <label for="name">Nome</label>
-  <input type="text" name="name" id="name" value="{name}" required style="width: 50%">
+  <label for="name">NOME DO PRODUTO:</label>
+  <input type="text" name="name" id="name" value="{name}" required >
     </div>
     <div class="labelinput">
-  <label for="cep">CEP</label>
-  <input type="text" name="cep" id="cep" class="wc_getCep formCep" value="{cep}" required style="width: 50%">
+  <label for="descricao">BREVE DESCRICAO:</label>
+  <input type="text" name="descricao" id="descricao" class="wc_getCep formCep" value="{cep}" required >
 </div>
 <div class="labelinput">
-  <label for="address">Endereço</label>
-  <input type="text" name="address" id="address" class="cep_address" value="{address}" required style="width: 50%">
+  <label for="tags">TAGS:</label>
+  <input type="text" name="tags" id="tags" class="cep_address" value="{address}" required >
 </div>
 <div class="labelinput">
-  <label for="district">Bairro</label>
-  <input type="text" name="district" id="district" class="cep_district" value="{district}" required style="width: 50%">
+  <label for="link_alternativo">LINK ALTERNATIVO(OPCIONAL):</label>
+  <input type="text" name="link_alternativo" id="link_alternativo" class="cep_district" value="{district}" required >
+</div>
+<div class="codunimarca">
+<div class="labelinput">
+  <label for="codigo">CODIGO:</label>
+  <input type="text" name="codigo" id="codigo" class="formPhone" value="{phone}" required >
 </div>
 <div class="labelinput">
-  <label for="phone">Telefone</label>
-  <input type="text" name="phone" id="phone" class="formPhone" value="{phone}" required style="width: 50%">
+  <label for="unidade_medida">UNIDADE DE MEDIDA:</label>
+  <input type="email" name="unidade_medida" id="unidade_medida" value="{mail}" required >
 </div>
 <div class="labelinput">
-  <label for="mail">E-mail</label>
-  <input type="email" name="mail" id="mail" value="{mail}" required style="width: 50%">
+  <label for="marca_fabricante">MARCA / FABRICANTE:</label>
+  <input type="text" name='marca_fabricante' id="marca_fabricante" class="cep_city" value="{city}" required >
+</div>
 </div>
 <div class="labelinput">
-  <label for="city">Cidade</label>
-  <input type="text" name='city' id="city" class="cep_city" value="{city}" required style='width: 50%'>
+  <label for="categoria">CATEGORIA:</label>
+  <input type="text" name='categoria' id="categoria" class="cep_city" value="{city}" required >
 </div>
 <div class="labelinput">
-  <label for="state">UF</label>
-  <input type="text" name='state' id="state" class="cep_uf" value="{state}" required style='width: 50%'>
+  <label for="categoria_facebook">FPC CATEGORIAS DO FACEBOOK:</label>
+  <input type="text" name='categoria_facebook' id="categoria_facebook" class="cep_city" value="{city}" required >
 </div>
-  <label class="actions">
-      <a href="index.php?class=PersonList" class="btn btn-ligth-gray">
-          <img src='images/icons8-cancel-50.svg' style='width:25px'>
-          VOLTAR</a>
+<div class="labelinput">
+  <label for="categoria_google">GPC CATEGORIAS DO GOOGLE:</label>
+  <input type="text" name='categoria_google' id="categoria_google" class="cep_city" value="{city}" required >
+</div>
 
-      <button class='btn btn-ligth-gray' type='submit'>
-          <img src='images/icons8-settings-50.svg' style='width:25px'>
-          SALVAR
-      </button>
-  </label>
 </div>
-  <div class="form2">
-    <p>aaaaaaaa</p>
+
+<div class="form2">
+  <div class="produtointeiro">
+  <div class="labelinput">
+    <label for="imagem">CAPA DO PRODUTO:</label>
+    <input type="file" name='imagem' id="imagem" class="cep_city" value="{city}" required >
+  </div>
+
+  <div class="imagemProduto"></div>
+</div>  
+
+<div class="labelinput">
+  <label for="formacao_preco">FORMACAO PRECO:</label>
+  <div class="formaprecolabel">
+    <div class="formaprecolabel1">
+    <label for="preco_custo">*PRECO DE CUSTO:</label>
+  <input type="text" name='preco_custo' id="preco_custo" class="cep_city" value="{city}" required >
 </div>
+<div class="formaprecolabel1">
+  <label for="margem_lucro">*MARGEM / LUCRO:</label>
+  <input type="text" name='margem_lucro' id="margem_lucro" class="cep_city" value="{city}" required >
+</div>
+  </div>
+</div>
+
+<div class="labelinput">
+  <label for="preco_venda">PRECO DE VENDA - R$:</label>
+   <div class="formaprecolabel1">
+    <label for="preco_cheio">*PRECO CHEIO:</label>
+  <input type="text" name='preco_cheio' id="preco_cheio" class="cep_city" value="{city}" required >
+</div>
+</div>
+
+<div class="labelinput">
+  <label for="configurar_promocao">CONFIGURAR_PROMOCAO:</label>
+   <div class="formaprecolabel1">
+    <label for="porcentagem_desconto">*PORCENTAGEM DE DESCONTO(%):</label>
+  <input type="text" name='porcentagem_desconto' id="porcentagem_desconto" class="cep_city" value="{city}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="preco_promocional">*PRECO PROMOCIONAL R$(0,00):</label>
+<input type="text" name='preco_promocional' id="preco_promocional" class="cep_city" value="{city}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="inicio_promocao">*INICIO DA PROMOCAO:</label>
+<input type="text" name='inicio_promocao' id="inicio_promocao" class="cep_city" value="{city}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="fim_promocao">*FIM DA PROMOCAO:</label>
+<input type="text" name='fim_promocao' id="fim_promocao" class="cep_city" value="{city}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="hotsite">*HOTSITE(OPCIONAL):</label>
+<input type="text" name='hotsite' id="hotsite" class="cep_city" value="{city}" required >
+</div>
+</div>
+
+  </div>
+
 </form>
 
 </div>
