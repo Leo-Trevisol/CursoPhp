@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Atualizar Pessoas</title>
+    <title>Cadastrar produtos</title>
    
-    <link rel="stylesheet" href="../css/form.css">
-    <link rel="stylesheet" href="../css/table.css">
-    <link rel="stylesheet" href="../css/form2.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/form2.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/maskinput.js"></script>
@@ -24,7 +24,7 @@
 <div class="topo">
     <div class="topo1">
         <button class="bthamb">
-            <img src="../imgs/hamburguer.png" alt="hamburguer" class="hamb">
+            <img src="imgs/hamburguer.png" alt="hamburguer" class="hamb">
         </button>
     </div>
    
@@ -32,7 +32,7 @@
     <div class="topo2">
         <p>Bem-vinde ao the Jhonas Commerce papi, hoje exatamente dia </p>
         <button class="btPorta"> 
-            <img src="../imgs/porta.png" alt="porta" >
+            <img src="imgs/porta.png" alt="porta" >
             <p>Sair!</p>
         </button>
     </div>
@@ -42,7 +42,7 @@
 <div id="menu">
     <div class="menu1" >
         <div class="menutit">
-        <img src="../imgs/flechamenu.png" alt="flecha">
+        <img src="imgs/flechamenu.png" alt="flecha">
         <h1>Nome do produto</h1>
         </div>  
         <div class="menusubtit">
@@ -52,11 +52,11 @@
 
     <div class="menu2">
         <button class="btvariacao">
-            <img src="../imgs/doublepage.png" alt="doublepage">
+            <img src="imgs/doublepage.png" alt="doublepage">
             <p>Criar variacao!</p>
         </button>
         <button class="btvernosite">
-            <img src="../imgs/olho.png" alt="eye">
+            <img src="imgs/olho.png" alt="eye">
             <p>Ver no site!</p>
         </button>
         
@@ -66,52 +66,112 @@
 
 <div id="container">
 
-    <form action="index.php?class=PersonForm&method=save" class="form_capitalize" method="post"
+    <form action="index.php?class=ProdutoForm&method=save" class="form_capitalize" method="post"
     enctype="multipart/form-data">
 
     <div class="form1">
 
+      <div class="idnone">
+        <label for="id">id</label>
+        <input type="number" name="id" id="id" value="{id}" readonly style="width: 30%">
+          </div>
+
     <div class="labelinput">
-  <label for="name">NOME DO PRODUTO:</label>
-  <input type="text" name="name" id="name" value="{name}" required >
+  <label for="nome">NOME DO PRODUTO:</label>
+  <input type="text" name="nome" id="nome" value="{nome}" required >
     </div>
     <div class="labelinput">
   <label for="descricao">BREVE DESCRICAO:</label>
-  <input type="text" name="descricao" id="descricao" class="wc_getCep formCep" value="{cep}" required >
+  <input type="text" name="descricao" id="descricao"  value="{descricao}" required >
 </div>
 <div class="labelinput">
   <label for="tags">TAGS:</label>
-  <input type="text" name="tags" id="tags" class="cep_address" value="{address}" required >
+  <input type="text" name="tags" id="tags"  value="{tags}" required >
+</div>
+
+<div class="formaprecolabel2">
+  <strong>Tags:</strong>
+  <p> *Palavras que nao constem nos 2 campos anteriores que o seu produto fosse encontrado nas buscas realizadas por palavra-chave. Se mais de 1(uma) separar por virgula.</p>
 </div>
 <div class="labelinput">
   <label for="link_alternativo">LINK ALTERNATIVO(OPCIONAL):</label>
-  <input type="text" name="link_alternativo" id="link_alternativo" class="cep_district" value="{district}" required >
+  <input type="text" name="link_alternativo" id="link_alternativo"  value="{link_alternativo}" required >
 </div>
 <div class="codunimarca">
 <div class="labelinput">
   <label for="codigo">CODIGO:</label>
-  <input type="text" name="codigo" id="codigo" class="formPhone" value="{phone}" required >
+  <input type="number" name="codigo" id="codigo"  value="{codigo}" required >
 </div>
 <div class="labelinput">
   <label for="unidade_medida">UNIDADE DE MEDIDA:</label>
-  <input type="email" name="unidade_medida" id="unidade_medida" value="{mail}" required >
+  <select id="unidade_medida" name="unidade_medida">
+    <option value="{unidade_medida}"></option>
+    <option value="{unidade_medida}"></option>
+    <option value="{unidade_medida}"></option>
+    <option value="{unidade_medida}"></option>
+  </select>
 </div>
 <div class="labelinput">
   <label for="marca_fabricante">MARCA / FABRICANTE:</label>
-  <input type="text" name='marca_fabricante' id="marca_fabricante" class="cep_city" value="{city}" required >
+  <select id="marca_fabricante" name="marca_fabricante">
+    <option value="{marca_fabricante}"></option>
+    <option value="{marca_fabricante}"></option>
+    <option value="{marca_fabricante}"></option>
+    <option value="{marca_fabricante}"></option>
+  </select>
 </div>
 </div>
 <div class="labelinput">
   <label for="categoria">CATEGORIA:</label>
-  <input type="text" name='categoria' id="categoria" class="cep_city" value="{city}" required >
+  <select id="categoria" name="categoria">
+    <option value="{categoria}"></option>
+    <option value="{categoria}"></option>
+    <option value="{categoria}"></option>
+    <option value="{categoria}"></option>
+  </select>
 </div>
 <div class="labelinput">
-  <label for="categoria_facebook">FPC CATEGORIAS DO FACEBOOK:</label>
-  <input type="text" name='categoria_facebook' id="categoria_facebook" class="cep_city" value="{city}" required >
+  <label for="categorias_facebook">FPC CATEGORIAS DO FACEBOOK:</label>
+  <select id="categorias_facebook" name="categorias_facebook">
+    <option value="{categorias_facebook}"></option>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+  </select>
 </div>
 <div class="labelinput">
   <label for="categoria_google">GPC CATEGORIAS DO GOOGLE:</label>
-  <input type="text" name='categoria_google' id="categoria_google" class="cep_city" value="{city}" required >
+  <select id="categorias_google" name="categorias_google">
+    <option value="{categorias_google}"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+  </select>
+</div>
+<div class="labelinput">
+  <label for="descricao_completa">DESCRICAO COMPLETA:</label>
+  <textarea name="descricao_completa" id="descricao_completa" value="{descricao_completa}" cols="30" rows="10" required></textarea>
+</div>
+<div class="labelinput">
+  <h2>DIMENSOES DO PRODUTO (CENTIMETROS):</h2>
+  <div class="formaprecolabel">
+    <div class="formaprecolabel1">
+    <label for="altura">ALTURA(CM):</label>
+  <input type="number" name='altura' id="altura" value="{altura}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="largura">LARGURA(CM):</label>
+  <input type="number" name='largura' id="largura" value="{largura}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="margem_lucro">PROFUNDIDADE(CM):</label>
+  <input type="number" name='profundidade' id="profundidade" value="{profundidade}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="peso">PESO EM (G):</label>
+  <input type="number" name='peso' id="peso" value="{peso}" required >
+</div>
+  </div>
 </div>
 
 </div>
@@ -119,8 +179,8 @@
 <div class="form2">
   <div class="produtointeiro">
   <div class="labelinput">
-    <label for="imagem">CAPA DO PRODUTO:</label>
-    <input type="file" name='imagem' id="imagem" class="cep_city" value="{city}" required >
+    <label for="arquivo">CAPA DO PRODUTO:</label>
+    <input type="text" name='arquivo' id="arquivo" value="{arquivo}" required >
   </div>
 
   <div class="imagemProduto"></div>
@@ -131,11 +191,11 @@
   <div class="formaprecolabel">
     <div class="formaprecolabel1">
     <label for="preco_custo">*PRECO DE CUSTO:</label>
-  <input type="text" name='preco_custo' id="preco_custo" class="cep_city" value="{city}" required >
+  <input type="number" name='preco_custo' id="preco_custo"  value="{preco_custo}" required >
 </div>
 <div class="formaprecolabel1">
   <label for="margem_lucro">*MARGEM / LUCRO:</label>
-  <input type="text" name='margem_lucro' id="margem_lucro" class="cep_city" value="{city}" required >
+  <input type="number" name='margem_lucro' id="margem_lucro" value="{margem_lucro}" required >
 </div>
   </div>
 </div>
@@ -144,31 +204,46 @@
   <label for="preco_venda">PRECO DE VENDA - R$:</label>
    <div class="formaprecolabel1">
     <label for="preco_cheio">*PRECO CHEIO:</label>
-  <input type="text" name='preco_cheio' id="preco_cheio" class="cep_city" value="{city}" required >
+  <input type="number" name='preco_cheio' id="preco_cheio" value="{preco_cheio}" required >
 </div>
 </div>
 
 <div class="labelinput">
   <label for="configurar_promocao">CONFIGURAR_PROMOCAO:</label>
    <div class="formaprecolabel1">
-    <label for="porcentagem_desconto">*PORCENTAGEM DE DESCONTO(%):</label>
-  <input type="text" name='porcentagem_desconto' id="porcentagem_desconto" class="cep_city" value="{city}" required >
+    <label for="porcentagem_desconto">PORCENTAGEM DE DESCONTO(%):</label>
+  <input type="number" name='porcentagem_desconto' id="porcentagem_desconto" value="{porcentagem_desconto}" required >
 </div>
 <div class="formaprecolabel1">
-  <label for="preco_promocional">*PRECO PROMOCIONAL R$(0,00):</label>
-<input type="text" name='preco_promocional' id="preco_promocional" class="cep_city" value="{city}" required >
+  <label for="preco_promocional">PRECO PROMOCIONAL R$(0,00):</label>
+<input type="number" name='preco_promocional' id="preco_promocional" value="{preco_promocional}" required >
 </div>
 <div class="formaprecolabel1">
-  <label for="inicio_promocao">*INICIO DA PROMOCAO:</label>
-<input type="text" name='inicio_promocao' id="inicio_promocao" class="cep_city" value="{city}" required >
+  <label for="inicio_promocao">INICIO DA PROMOCAO:</label>
+<input type="date" name='inicio_promocao' id="inicio_promocao" value="{inicio_promocao}" required >
 </div>
 <div class="formaprecolabel1">
-  <label for="fim_promocao">*FIM DA PROMOCAO:</label>
-<input type="text" name='fim_promocao' id="fim_promocao" class="cep_city" value="{city}" required >
+  <label for="fim_promocao">FIM DA PROMOCAO:</label>
+<input type="date" name='fim_promocao' id="fim_promocao" value="{fim_promocao}" required >
 </div>
 <div class="formaprecolabel1">
-  <label for="hotsite">*HOTSITE(OPCIONAL):</label>
-<input type="text" name='hotsite' id="hotsite" class="cep_city" value="{city}" required >
+  <label for="hotsite">HOTSITE(OPCIONAL):</label>
+<input type="text" name='hotsite' id="hotsite" value="{hotsite}" required >
+</div>
+<div class="formaprecolabel1">
+  <label for="estoque">ESTOQUE:</label>
+<input type="text" name='estoque' id="estoque"  value="10 EM ESTOQUE" disabled >
+</div>
+<div class="formaprecolabel">
+  <input type="submit" class="btpublicar" value="PUBLICAR AGORA!">
+  <div class="btatualizar"> ATUALIZAR! </div>
+</div>
+<div class="formaprecolabel2">
+  <button> <img src="imgs/face.png" alt=""></button>
+  <button> <img src="imgs/zap.png" alt=""></button>
+  <button> <img src="imgs/linkedin.png" alt=""></button>  
+  <button> <img src="imgs/twitter.png" alt=""></button>
+  <button> <img src="imgs/email.png" alt=""></button>
 </div>
 </div>
 

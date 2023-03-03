@@ -152,7 +152,7 @@ body{
 .formaprecolabel{
     display: flex;
     gap: 10px;
-   
+   justify-content: space-between;
 }
 
 .formaprecolabel1{
@@ -162,4 +162,44 @@ body{
     margin-top: 5px;
 }
 
+.formaprecolabel2{
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
 
+.formaprecolabel2 > p{
+color: red;
+}
+
+.formaprecolabel2 > button{
+    background-color: transparent;
+    border: 0px;
+
+}
+
+.formaprecolabel2 > button:hover{
+    cursor: pointer;    
+}
+
+.btatualizar, .btpublicar{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    font-size: 15px;
+}
+
+.btatualizar{
+    background-color: rgba(0, 128, 0, 0.664);
+}
+
+.btpublicar{
+    background-color: rgba(0, 128, 0, 0.856);
+}
+
+.idnone{
+    display: none;
+}
