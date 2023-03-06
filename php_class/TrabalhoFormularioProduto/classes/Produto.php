@@ -27,12 +27,13 @@ class Produto{
             $result = $conn->query("SELECT max(id) as next FROM produto");
             $row = $result->fetch();
             $produto['id'] = (int)$row['next'] + 1;
+            $arquivo = __DIR__ . ":arquivo";
             $sql = "INSERT INTO produto
                                 (id, nome, descricao, tags, link_alternativo, codigo, unidade_medida, marca_fabricante, categoria, categorias_facebook, categorias_google, descricao_completa, altura, largura, profundidade, peso, arquivo, preco_custo, margem_lucro, preco_cheio, porcentagem_desconto, preco_promocional, inicio_promocao, fim_promocao, hotsite) 
                                 
                                 VALUES
 
-                                (:id, :nome, :descricao, :tags, :link_alternativo, :codigo, :unidade_medida, :marca_fabricante, :categoria, :categorias_facebook, :categorias_google, :descricao_completa, :altura, :largura, :profundidade, :peso,  :arquivo, :preco_custo, :margem_lucro, :preco_cheio, :porcentagem_desconto, :preco_promocional, :inicio_promocao, :fim_promocao, :hotsite)";
+                                (:id, :nome, :descricao, :tags, :link_alternativo, :codigo, :unidade_medida, :marca_fabricante, :categoria, :categorias_facebook, :categorias_google, :descricao_completa, :altura, :largura, :profundidade, :peso,  {$arquivo}, :preco_custo, :margem_lucro, :preco_cheio, :porcentagem_desconto, :preco_promocional, :inicio_promocao, :fim_promocao, :hotsite)";
         } else {
             $sql = "UPDATE produto SET nome = :nome, descricao = :descricao, tags = :tags, link_alternativo = :link_alternativo, codigo = :codigo, unidade_medida = :unidade_medida, marca_fabricante = :marca_fabricante, categoria = :categoria, categorias_facebook = :categorias_facebook, categorias_google = :categorias_google, descricao_completa = :descricao_completa, altura = :altura, largura = :largura, profundidade = :profundidade, peso = :peso, arquivo = :arquivo, preco_custo = :preco_custo, margem_lucro = :margem_lucro, preco_cheio = :preco_cheio, porcentagem_desconto = :porcentagem_desconto, preco_promocional = :preco_promocional, inicio_promocao = :inicio_promocao, fim_promocao = :fim_promocao, hotsite = :hotsite WHERE id = :id  ";
         }
