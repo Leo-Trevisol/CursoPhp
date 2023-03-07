@@ -100,6 +100,31 @@ class ProdutoForm{
         print  $this->html;
     }
 
+    public function options($table){
+        $conn = Produto::getConnection();
+        $result = $conn->query("SELECT * FROM " . $table)->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result){
+
+            $options = "<option value ='' selected disabled> SELECIONE UMA OPCAO </option>";
+
+            foreach($text as $result){
+                
+            }
+
+        }else{
+            $options = "<option value ='' selected disabled> CADASTRE ALGUMA UNIDADE DE MEDIDA </option>";
+        }
+
+        
+
+       
+
+        return $options;
+    }
+
 }
+
+
 
 ?>

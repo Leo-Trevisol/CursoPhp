@@ -203,3 +203,8 @@ color: red;
 .idnone{
     display: none;
 }
+
+.imagemProduto{
+    width: 400px;
+    height: 500px;
+}
