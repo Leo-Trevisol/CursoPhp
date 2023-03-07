@@ -88,7 +88,7 @@
     </div>
     <div class="labelinput">
   <label for="descricao">BREVE DESCRICAO:</label>
-  <input type="text" name="descricao" id="descricao"  value="{descricao}" required >
+  <textarea name="descricao" id="descricao" value="{descricao}" cols="30" rows="10" required></textarea>
 </div>
 <div class="labelinput">
   <label for="tags">TAGS:</label>
@@ -188,7 +188,7 @@
   <div class="produtointeiro">
   <div class="labelinput">
     <label for="arquivo">CAPA DO PRODUTO:</label>
-    <input type="text" name='arquivo' id="arquivo" value="{arquivo}" required >
+    <input type="file" name='arquivo' id="arquivo" value="{arquivo}" required >
   </div>
 
   <div class="imagemProduto"></div>
@@ -199,11 +199,11 @@
   <div class="formaprecolabel">
     <div class="formaprecolabel1">
     <label for="preco_custo">*PRECO DE CUSTO:</label>
-  <input type="number" name='preco_custo' id="preco_custo"  value="{preco_custo}" required >
+  <input type="text" name='preco_custo' id="preco_custo"  value="{preco_custo}" required >
 </div>
 <div class="formaprecolabel1">
   <label for="margem_lucro">*MARGEM / LUCRO:</label>
-  <input type="number" name='margem_lucro' id="margem_lucro" value="{margem_lucro}" required >
+  <input type="text" name='margem_lucro' id="margem_lucro" value="{margem_lucro}" required >
 </div>
   </div>
 </div>
@@ -212,7 +212,7 @@
   <label for="preco_venda">PRECO DE VENDA - R$:</label>
    <div class="formaprecolabel1">
     <label for="preco_cheio">*PRECO CHEIO:</label>
-  <input type="number" name='preco_cheio' id="preco_cheio" value="{preco_cheio}" required >
+  <input type="text" name='preco_cheio' id="preco_cheio" value="{preco_cheio}" required >
 </div>
 </div>
 
@@ -224,7 +224,7 @@
 </div>
 <div class="formaprecolabel1">
   <label for="preco_promocional">PRECO PROMOCIONAL R$(0,00):</label>
-<input type="number" name='preco_promocional' id="preco_promocional" value="{preco_promocional}" required >
+<input type="text" name='preco_promocional' id="preco_promocional" value="{preco_promocional}" required >
 </div>
 <div class="formaprecolabel1">
   <label for="inicio_promocao">INICIO DA PROMOCAO:</label>
