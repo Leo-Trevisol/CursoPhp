@@ -31,8 +31,8 @@ class Produto{
             $produto['id'] = (int)$row['next'] + 1;
             
         
-            // $produto['inicio_promocao'] = $produto['inicio_promocao'] ? Check::Data($produto['inicio_promocao']) : null;
-            // $produto['fim_promocao'] = $produto['fim_promocao'] ? Check::Data($produto['fim_promocao']) : null;
+            $produto['inicio_promocao'] = $produto['inicio_promocao'] ? Check::Data($produto['inicio_promocao']) : null;
+            $produto['fim_promocao'] = $produto['fim_promocao'] ? Check::Data($produto['fim_promocao']) : null;
 
             $sql = "INSERT INTO produto
                                 (id, nome, descricao, tags, link_alternativo, codigo, unidade_medida, marca_fabricante, categoria, categorias_facebook, categorias_google, descricao_completa, altura, largura, profundidade, peso, arquivo, preco_custo, margem_lucro, preco_cheio, porcentagem_desconto, preco_promocional, inicio_promocao, fim_promocao, hotsite) 

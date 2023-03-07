@@ -13,8 +13,13 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/maskinput.js"></script>
-    <script src="../js/script.js"></script>
     <script src="js/script.js"></script>
+    <script src="datepicker/datepicker.min.js"></script>
+    <script src="datepicker/datepicker.pt-BR.js"></script>
+    <script src="datepicker/datepicker.pt-BR.min.js"></script>
+
+
+
     <style>
         
     </style>
@@ -223,11 +228,11 @@
 </div>
 <div class="formaprecolabel1">
   <label for="inicio_promocao">INICIO DA PROMOCAO:</label>
-  <input type="date" name='inicio_promocao' id="inicio_promocao" value="{inicio_promocao}" class="jwc_datepicker" required >
+  <input  type="text" data-timepicker ='true' name='inicio_promocao' id="inicio_promocao" value="{inicio_promocao}" class="jwc_datepicker" required >
 </div>
 <div class="formaprecolabel1">
   <label for="fim_promocao">FIM DA PROMOCAO:</label>
-<input type="date" name='fim_promocao' id="fim_promocao" value="{fim_promocao}" class="jwc_datepicker head" required >
+<input type="text" data-timepicker='true' name='fim_promocao' id="fim_promocao" value="{fim_promocao}" class="jwc_datepicker" required >
 </div>
 <div class="formaprecolabel1">
   <label for="hotsite">HOTSITE(OPCIONAL):</label>

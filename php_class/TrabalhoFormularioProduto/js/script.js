@@ -1,5 +1,8 @@
 $(function () {
 
+    const BASE = window.location.origin +
+     window.location.pathname.substring(window.location.pathname.indexOf('/index.php'), 0);
+
     //############## GET CNPJ + Validando com function validarCNPJ
     $('.wc_getCnpj').on('blur', function () {
         if (!validarCNPJ(this.value)) {
@@ -74,10 +77,11 @@ $(function () {
     }
 
     /*############## DATEPICKER*/
+ 
     if ($('.jwc_datepicker').length) {
-        $("head").append('<link rel="stylesheet" href="' + BASE + '/_cdn/datepicker/datepicker.min.css">');
-        $.getScript(BASE + '/_cdn/datepicker/datepicker.min.js');
-        $.getScript(BASE + '/_cdn/datepicker/datepicker.pt-BR.js', function () {
+        $("head").append('<link rel="stylesheet" href="' + BASE + '/datepicker/datepicker.min.css">');
+        $.getScript(BASE + '/datepicker/datepicker.min.js');
+        $.getScript(BASE + '/datepicker/datepicker.pt-BR.js', function () {
             $('.jwc_datepicker').datepicker({
                 language: 'pt-BR',
                 autoClose: true
