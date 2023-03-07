@@ -25,31 +25,8 @@ class Produto{
     public static function save($produto)
     {
 
-        $folder = __DIR__ . "/uploads";
+        $newfilename = null;
 
-        if(!file_exists($folder) || !is_dir($folder)){
-            mkdir($folder, 777); 
-        }else{
-           var_dump(scandir($folder));
-        }
-
-        $getpost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
-
-        if($_FILES && !empty($_FILES['arquivo']['name'])){
-            var_dump($_FILES);
-                $fileupload = $_FILES['arquivo'];
-                var_dump($fileupload);
-
-                $allowedtypes = [
-                    'image/jpg',
-                    'image/jpeg',
-                    'image/png',
-                    'application/pdf'
-                ];
-
-                $newfilename = time() . mb_strstr($fileupload['name'], '.');
-
-            }
         $conn = self::getConnection();
         if (empty($produto['id'])) {
             $result = $conn->query("SELECT max(id) as next FROM produto");
@@ -57,6 +34,41 @@ class Produto{
             $produto['id'] = (int)$row['next'] + 1;
             $produto['inicio_promocao'] = $produto['inicio_promocao'] ? Check::Data($produto['inicio_promocao']) : null;
             $produto['fim_promocao'] = $produto['fim_promocao'] ? Check::Data($produto['fim_promocao']) : null;
+
+            $folder = __DIR__ . "/uploads";
+
+            if(!file_exists($folder) || !is_dir($folder)){
+                //MKDIR CRIA DIRETORIOS
+                mkdir($folder, 0755);
+            }
+    
+            $getpost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
+            
+            if($_FILES && !empty($_FILES['arquivo']['name'])){
+               
+                    $fileupload = $_FILES['arquivo'];
+                   
+    
+                    $allowedtypes = [
+                        'image/jpg',
+                        'image/jpeg',
+                        'image/png',
+                        'application/pdf'
+                    ];
+    
+                    $newfilename = time() . mb_strstr($fileupload['name'], '.');
+
+                    $file1 = (__DIR__ . "/uploads/" . $newfilename);
+                    
+                    $produto['arquivo'] = $file1;
+    
+                    if(in_array($fileupload['type'], $allowedtypes)){
+                        if(move_uploaded_file($fileupload['tmp_name'], __DIR__ . "/uploads/{$newfilename}")){
+                        }
+                    }
+
+                }
+            
 
             $sql = "INSERT INTO produto
                                 (id, nome, descricao, tags, link_alternativo, codigo, unidade_medida, marca_fabricante, categoria, categorias_facebook, categorias_google, descricao_completa, altura, largura, profundidade, peso, arquivo, preco_custo, margem_lucro, preco_cheio, porcentagem_desconto, preco_promocional, inicio_promocao, fim_promocao, hotsite) 
