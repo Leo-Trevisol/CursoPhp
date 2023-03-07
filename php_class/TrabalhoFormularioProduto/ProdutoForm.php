@@ -40,6 +40,30 @@ class ProdutoForm{
 
     }
 
+    public function options($table)
+    {
+        $conn = Produto::getConnection();
+        $result = $conn->query("SELECT * FROM " . $table)->fetchAll(PDO::FETCH_ASSOC);
+        
+        if ($result) {
+            $options = "<option value='' selected disabled >Selecione uma opção</option>";
+            
+            foreach ($result as $opt) {
+                $value = ($table == 'marca_fabricante' ? 'descricao' :
+                    ($table == 'categoria' ? 'descricao' :
+                        ($table == 'categoria_facebook' ? 'descricao' :  
+                            ($table == 'categoria_google' ? 'descricao' : null
+                        ))));
+                
+                $options .= "<option value=\"{$opt['codigo']}\">{$opt[$value]}</option>";
+            }
+        } else {
+            $options = "<option value='' selected disabled >Cadastre primeiro uma unidade medida.</option>";
+        }
+        
+        return $options;
+    }
+
     public function edit($param)
     {
         try {
@@ -114,10 +138,10 @@ class ProdutoForm{
                 $this->data['link_alternativo'],
                 $this->data['codigo'],
                 $this->data['unidade_medida'],
-                $this->data['marca_fabricante'],
-                $this->data['categoria'],
-                $this->data['categorias_facebook'],
-                $this->data['categorias_google'],
+                self::options('marca_fabricante'),
+                self::options('categoria'),
+                self::options('categoria_facebook'),
+                self::options('categoria_google'),
                 $this->data['descricao_completa'],
                 $this->data['altura'],
                 $this->data['largura'],
@@ -138,29 +162,6 @@ class ProdutoForm{
         //$this->html = str_replace($search, $this->data, $this->html);
         
         print  $this->html;
-    }
-
-    public function options($table){
-        $conn = Produto::getConnection();
-        $result = $conn->query("SELECT * FROM " . $table)->fetchAll(PDO::FETCH_ASSOC);
-
-        if($result){
-
-            $options = "<option value ='' selected disabled> SELECIONE UMA OPCAO </option>";
-
-            foreach($text as $result){
-                
-            }
-
-        }else{
-            $options = "<option value ='' selected disabled> CADASTRE ALGUMA UNIDADE DE MEDIDA </option>";
-        }
-
-        
-
-       
-
-        return $options;
     }
 
 }
