@@ -51,8 +51,8 @@ class ProdutoForm{
             foreach ($result as $opt) {
                 $value = ($table == 'marca_fabricante' ? 'descricao' :
                     ($table == 'categoria' ? 'descricao' :
-                        ($table == 'categoria_facebook' ? 'descricao' :  
-                            ($table == 'categoria_google' ? 'descricao' : null
+                        ($table == 'categorias_facebook' ? 'descricao' :  
+                            ($table == 'categorias_google' ? 'descricao' : null
                         ))));
                 
                 $options .= "<option value=\"{$opt['codigo']}\">{$opt[$value]}</option>";
@@ -140,8 +140,8 @@ class ProdutoForm{
                 $this->data['unidade_medida'],
                 self::options('marca_fabricante'),
                 self::options('categoria'),
-                self::options('categoria_facebook'),
-                self::options('categoria_google'),
+                self::options('categorias_facebook'),
+                self::options('categorias_google'),
                 $this->data['descricao_completa'],
                 $this->data['altura'],
                 $this->data['largura'],
