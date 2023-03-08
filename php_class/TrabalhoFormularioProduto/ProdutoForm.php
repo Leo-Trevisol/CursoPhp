@@ -64,6 +64,39 @@ class ProdutoForm{
         return $options;
     }
 
+    public function upload($file)
+    {
+        $getPost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
+
+        if ($_FILES && !empty($_FILES['arquivo']['name'])) {
+            var_dump($_FILES);
+            $fileUpload = $_FILES['arquivo'];
+            var_dump($fileUpload);
+    
+            $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'application/pdf', 'application/vnd.ms-excel'];
+    
+            $newFileName = time() . mb_strstr($fileUpload['name'], '.');
+    
+            if(in_array($fileUpload['type'], $allowedTypes)) {
+                
+                if(move_uploaded_file($fileUpload['tmp_name'], __DIR__."/uploads/{$newFileName}")){
+                    echo "<p class='trigger accept'>Arquivo enviado com sucesso!</p>";
+            
+                }else{
+                    echo "<p class='trigger error'>Erro inesperado.</p>";
+                }
+        
+            } else {
+                echo "<p class='trigger error'>Tipo de arquivo não permitido.</p>";
+            }
+    
+        } elseif ($getPost && !$_FILES){
+            echo "<p class='trigger warning'>Parece que o arquivo é muito grande.</p>";
+        } else {
+            echo "<p class='trigger warning'>Selecione um arquivo antes de enviar!</p>";
+        }
+    }
+
     public function edit($param)
     {
         try {
@@ -84,46 +117,6 @@ class ProdutoForm{
         } catch (Exception $e) {
             print $e->getMessage();
         }
-    }
-
-    public function importPhoto(){
-        $folder = __DIR__ . "/uploads";
-
-        if(!file_exists($folder) || !is_dir($folder)){
-            //MKDIR CRIA DIRETORIOS
-            mkdir($folder, 0755);
-        }
-
-        $getpost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
-        
-        if($_FILES && !empty($_FILES['arquivo']['name'])){
-            var_dump($_FILES);
-                $fileupload = $_FILES['arquivo'];
-                var_dump($fileupload);
-
-                $allowedtypes = [
-                    'image/jpg',
-                    'image/jpeg',
-                    'image/png',
-                    'application/pdf'
-                ];
-
-                $newfilename = time() . mb_strstr($fileupload['name'], '.');
-
-                if(in_array($fileupload['type'], $allowedtypes)){
-                    if(move_uploaded_file($fileupload['tmp_name'], __DIR__ . "/uploads/{$newfilename}")){
-                        echo "<p class = 'trigger accept' > ARQUIVO ENVIADO COM SUCESSO </p>";
-                    }else{
-                        echo "<p class = 'trigger error' > ERRO INESPERADO </p>";
-                    }
-                }else{
-                    echo "<p class = 'trigger warning' > TIPO DE ARQUIVO NAO PERMITIDO </p>";
-                }
-            }elseif($getpost && !$_FILES){
-                echo "<p class = 'trigger warning' > ARQUIVO MUITO GRANDE  </p>";
-            }else{
-                echo "<p class = 'trigger accept' > SELECIONE O ARQUIVO ANTES DE ENVIAR </p>";
-            }
     }
 
     public function show()
@@ -163,6 +156,8 @@ class ProdutoForm{
         
         print  $this->html;
     }
+
+
 
 }
 
