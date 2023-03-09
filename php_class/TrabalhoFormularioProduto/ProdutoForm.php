@@ -111,6 +111,10 @@ class ProdutoForm{
             $produto['categoria'] = self::options('categoria', $produto['categoria']);
             $produto['categorias_facebook'] = self::options('categorias_facebook', $produto['categorias_facebook']);
             $produto['categorias_google'] = self::options('categorias_google', $produto['categorias_google']);
+
+            $produto['inicio_promocao'] = isset($produto($produto['inicio_promocao']) ?Check::DataBr($produto['inicio_promocao'])) : null;
+            $produto['fim_promocao'] = isset($produto($produto['fim_promocao']) ?Check::DataBr($produto['fim_promocao'])) : null;
+
             $this->data = $produto;
         } catch (Exception $e) {
             print $e->getMessage();
