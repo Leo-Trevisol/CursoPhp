@@ -5,6 +5,7 @@ require_once __DIR__ . '/helpers/Check.php';
 class Produto{
 
     private static $conn;
+    private $file1 = null;
         
     public static function getConnection()
     {
@@ -60,14 +61,14 @@ class Produto{
 
                     $file1 = (__DIR__ . "/uploads/" . $newfilename);
                     
-                    $produto['arquivo'] = $file1;
-    
                     if(in_array($fileupload['type'], $allowedtypes)){
                         if(move_uploaded_file($fileupload['tmp_name'], __DIR__ . "/uploads/{$newfilename}")){
                         }
                     }
 
                 }
+
+                $produto['arquivo'] = $file1;
             
 
             $sql = "INSERT INTO produto

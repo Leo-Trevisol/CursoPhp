@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/classes/Produto.php';
+require_once __DIR__ . '/classes/helpers/Check.php';
+require_once __DIR__ . '/config/config.php';
+
 
 class ProdutoForm{
 
@@ -40,7 +43,7 @@ class ProdutoForm{
 
     }
 
-    public function options($table)
+    public function options($table, $selected = null)
     {
         $conn = Produto::getConnection();
         $result = $conn->query("SELECT * FROM " . $table)->fetchAll(PDO::FETCH_ASSOC);
@@ -54,11 +57,13 @@ class ProdutoForm{
                         ($table == 'categorias_facebook' ? 'descricao' :  
                             ($table == 'categorias_google' ? 'descricao' : null
                         ))));
+
+                       $selected = !empty($selected) ? 'selected' : '';
                 
                 $options .= "<option value=\"{$opt['codigo']}\">{$opt[$value]}</option>";
             }
         } else {
-            $options = "<option value='' selected disabled >Cadastre primeiro uma unidade medida.</option>";
+            $options = "<option {$selected} value='' selected disabled >Cadastre primeiro uma unidade medida.</option>";
         }
         
         return $options;
@@ -102,6 +107,10 @@ class ProdutoForm{
         try {
             $id = (int)$param['id'];
             $produto = Produto::find($id);
+            $produto['marca_fabricante'] = self::options('marca_fabricante', $produto['marca_fabricante']);
+            $produto['categoria'] = self::options('categoria', $produto['categoria']);
+            $produto['categorias_facebook'] = self::options('categorias_facebook', $produto['categorias_facebook']);
+            $produto['categorias_google'] = self::options('categorias_google', $produto['categorias_google']);
             $this->data = $produto;
         } catch (Exception $e) {
             print $e->getMessage();
@@ -109,7 +118,9 @@ class ProdutoForm{
     }
 
     public function save($param)
-    {
+    {   
+
+       
         try {
             Produto::save($param);
             $this->data = $param;
@@ -122,7 +133,7 @@ class ProdutoForm{
     public function show()
     {
         $this->html = str_replace(
-            ['{id}', '{nome}', '{descricao}', '{tags}', '{link_alternativo}', '{codigo}', '{unidade_medida}', '{marca_fabricante}', '{categoria}', '{categorias_facebook}', '{categorias_google}', '{descricao_completa}', '{altura}', '{largura}', '{profundidade}', '{peso}', '{arquivo}', '{preco_custo}', '{margem_lucro}', '{preco_cheio}', '{porcentagem_desconto}', '{preco_promocional}', '{inicio_promocao}', '{fim_promocao}', '{hotsite}'],
+            ['{id}', '{nome}', '{descricao}', '{tags}', '{link_alternativo}', '{codigo}', '{unidade_medida}', '{marca_fabricante}', '{categoria}', '{categorias_facebook}', '{categorias_google}', '{descricao_completa}', '{altura}', '{largura}', '{profundidade}', '{peso}', /*'{arquivo}', */ '{preco_custo}', '{margem_lucro}', '{preco_cheio}', '{porcentagem_desconto}', '{preco_promocional}', '{inicio_promocao}', '{fim_promocao}', '{hotsite}'],
             [   
                 $this->data['id'],
                 $this->data['nome'],
@@ -139,7 +150,7 @@ class ProdutoForm{
                 $this->data['altura'],
                 $this->data['largura'],
                 $this->data['profundidade'],
-                $this->data['arquivo'],
+                (!empty($this->data['arquivo']) ? : BASE . '/uploads/1678315212.jpg'),
                 $this->data['preco_custo'],
                 $this->data['margem_lucro'],
                 $this->data['preco_cheio'],

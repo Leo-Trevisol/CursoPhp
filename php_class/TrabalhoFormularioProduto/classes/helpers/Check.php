@@ -175,6 +175,24 @@
             return self::$Data;
             endif;
         }
+
+        public static function DataBr($Data)
+        {
+            self::$Format = explode(' ', $Data);
+            self::$Data = explode('-', self::$Format[0]);
+
+            if (!checkdate(self::$Data[1], self::$Data[0], self::$Data[2])):
+                var_dump( $Data);
+                return false; else:
+                if (empty(self::$Format[1])):
+                    self::$Format[1] = date('H:i:s');
+            endif;
+                
+            self::$Data = self::$Data[2] . '/' . self::$Data[1] . '/' . self::$Data[0] . ' ' . self::$Format[1];
+            
+            return self::$Data;
+            endif;
+        }
         
         /**
          * validadeDate : Valida date em formato DATE_BR
@@ -300,6 +318,8 @@
             
             return $age->y;
         }
+
+
         
         public static function WhatsMessage($phone_number, $message)
         {
