@@ -110,10 +110,8 @@ class ProdutoForm{
             $produto['marca_fabricante'] = self::options('marca_fabricante', $produto['marca_fabricante']);
             $produto['categoria'] = self::options('categoria', $produto['categoria']);
             $produto['categorias_facebook'] = self::options('categorias_facebook', $produto['categorias_facebook']);
-            $produto['categorias_google'] = self::options('categorias_google', $produto['categorias_google']);
-
-            $produto['inicio_promocao'] = isset($produto($produto['inicio_promocao']) ?Check::DataBr($produto['inicio_promocao'])) : null;
-            $produto['fim_promocao'] = isset($produto($produto['fim_promocao']) ?Check::DataBr($produto['fim_promocao'])) : null;
+            $produto['categoria s_google'] = self::options('categorias_google', $produto['categorias_google']);
+         
 
             $this->data = $produto;
         } catch (Exception $e) {
@@ -154,7 +152,7 @@ class ProdutoForm{
                 $this->data['altura'],
                 $this->data['largura'],
                 $this->data['profundidade'],
-                (!empty($this->data['arquivo']) ? : BASE . '/uploads/1678315212.jpg'),
+               // (!empty($this->data['arquivo']) ? : BASE . '/uploads/1678315212.jpg'),
                 $this->data['preco_custo'],
                 $this->data['margem_lucro'],
                 $this->data['preco_cheio'],

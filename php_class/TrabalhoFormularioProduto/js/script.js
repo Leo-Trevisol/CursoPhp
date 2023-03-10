@@ -89,11 +89,11 @@ $(function () {
         });
     }
 
-    // if ($('.trigger-sucess').length) {
-    //     setTimeout(function (){
-    //         window.location.href= 'index.php?class=PersonList';
-    //     }, 2000);
-    // }
+    if ($('.trigger-sucess').length) {
+        setTimeout(function (){
+            window.location.href= 'index.php?class=ProdutoList';
+        }, 2000);
+    }
 
     /*############## WC TAB  CUSTOM BY ALISSON*/
     $('html').on('click', '.wc_tab', function () {
