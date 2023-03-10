@@ -88,7 +88,7 @@
     </div>
     <div class="labelinput">
   <label for="descricao">BREVE DESCRICAO:</label>
-  <textarea name="descricao" id="descricao" value="{descricao}" cols="30" rows="10" required></textarea>
+  <textarea name="descricao" id="descricao"  cols="30" rows="10" required>{descricao}</textarea>
 </div>
 <div class="labelinput">
   <label for="tags">TAGS:</label>
@@ -111,12 +111,7 @@
 <div class="labelinput">
   <label for="unidade_medida">UNIDADE DE MEDIDA:</label>
   <select id="unidade_medida" name="unidade_medida">
-    <option value="UN">UN</option>
-    <option value="CM">CM</option>
-    <option value="MT">MT</option>
-    <option value="LT">LT</option>
-    <option value="G">G</option>
-    <option value="QTDE">QTDE</option>
+    {unidade_medida}
   </select>
 </div>
 <div class="labelinput">
@@ -146,7 +141,7 @@
 </div>
 <div class="labelinput">
   <label for="descricao_completa">DESCRICAO COMPLETA:</label>
-  <textarea name="descricao_completa" id="descricao_completa" value="{descricao_completa}" cols="30" rows="10" required></textarea>
+  <textarea name="descricao_completa" id="descricao_completa" cols="30" rows="10" required>{descricao_completa}</textarea>
 </div>
 <div class="labelinput">
   <h2>DIMENSOES DO PRODUTO (CENTIMETROS):</h2>

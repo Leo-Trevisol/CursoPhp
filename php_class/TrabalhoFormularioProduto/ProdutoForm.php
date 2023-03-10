@@ -20,7 +20,7 @@ class ProdutoForm{
             'tags' => null,
             'link_alternativo' => null,
             'codigo' => null,
-            'unidade_medida' => null,
+            'unidade_medida' => self::options('unidade_medida'),
             'marca_fabricante' => null,
             'categoria' => null,
             'categorias_facebook' => null,
@@ -52,12 +52,28 @@ class ProdutoForm{
             $options = "<option value='' selected disabled >Selecione uma opção</option>";
             
             foreach ($result as $opt) {
-                $value = ($table == 'marca_fabricante' ? 'descricao' :
-                    ($table == 'categoria' ? 'descricao' :
-                        ($table == 'categorias_facebook' ? 'descricao' :  
-                            ($table == 'categorias_google' ? 'descricao' : null
-                        ))));
-
+                switch($table){
+                    case 'unidade_medida': 
+                        $value = 'descricao';
+                        break;
+                        case 'marca_fabricante': 
+                            $value = 'descricao';
+                            break;
+                            case 'categoria': 
+                                $value = 'descricao';
+                                break;
+                                case 'categorias_facebook': 
+                                    $value = 'descricao';
+                                    break;
+                                    case 'categorias_google': 
+                                        $value = 'descricao';
+                                        break;
+                                        default :
+                                        $value =  null;
+                                        break;
+                        
+                            
+                }
                        $selected = !empty($selected) ? 'selected' : '';
                 
                 $options .= "<option value=\"{$opt['codigo']}\">{$opt[$value]}</option>";
@@ -107,6 +123,7 @@ class ProdutoForm{
         try {
             $id = (int)$param['id'];
             $produto = Produto::find($id);
+            $produto['unidade_medida'] = self::options('unidade_medida', $produto['unidade_medida']);
             $produto['marca_fabricante'] = self::options('marca_fabricante', $produto['marca_fabricante']);
             $produto['categoria'] = self::options('categoria', $produto['categoria']);
             $produto['categorias_facebook'] = self::options('categorias_facebook', $produto['categorias_facebook']);
@@ -143,7 +160,7 @@ class ProdutoForm{
                 $this->data['tags'],
                 $this->data['link_alternativo'],
                 $this->data['codigo'],
-                $this->data['unidade_medida'],
+                self::options('unidade_medida'),
                 self::options('marca_fabricante'),
                 self::options('categoria'),
                 self::options('categorias_facebook'),
