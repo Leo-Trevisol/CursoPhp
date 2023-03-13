@@ -171,7 +171,7 @@ class ProdutoForm{
                 $this->data['altura'],
                 $this->data['largura'],
                 $this->data['profundidade'],
-                (!empty($this->data['arquivo']) ? : 'http://localhost/Curso-Php/php_class/TrabalhoFormularioProduto/classes/uploads/1678404975.png'),
+                'http://localhost/Curso-Php/php_class/TrabalhoFormularioProduto/classes/uploads/' . $this->data['arquivo'],
                 $this->data['preco_custo'],
                 $this->data['margem_lucro'],
                 $this->data['preco_cheio'],

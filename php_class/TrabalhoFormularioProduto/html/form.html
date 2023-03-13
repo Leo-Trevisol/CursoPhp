@@ -14,6 +14,7 @@
     <script src="js/jquery.form.js"></script>
     <script src="js/maskinput.js"></script>
     <script src="js/script.js"></script>
+  
     <script src="datepicker/datepicker.min.js"></script>
     <script src="datepicker/datepicker.pt-BR.js"></script>
     <script src="datepicker/datepicker.pt-BR.min.js"></script>
@@ -39,7 +40,7 @@
         <p>Bem-vinde ao the Jhonas Commerce papi, hoje exatamente dia </p>
         <button class="btPorta"> 
             <img src="imgs/porta.png" alt="porta" >
-            <p >Sair!</p>
+            <p onclick="window.open('index.php?class=ProdutoList')" >Sair!</p>
         </button>
     </div>
 
@@ -171,11 +172,11 @@
   <div class="produtointeiro">
   <div class="labelinput">
     <label for="arquivo">CAPA DO PRODUTO:</label>
-    <input type="file" name='arquivo' id="arquivo" value="{arquivo}" required >
+    <input type="file" name='arquivo' id="arquivo" value="{arquivo}" onclick="img()" required >
   </div>
 
-  <div class="imagemProduto">
-    <img src="http://localhost/Curso-Php/php_class/TrabalhoFormularioProduto/classes/uploads/{arquivo}" alt="">
+  <div id="imagemProdutoofc">
+    <img src="classes/uploads/1678676605.png" alt="" id="imagemProduto">
   </div>
 </div>  
 
@@ -229,7 +230,7 @@
 </div>
 <div class="formaprecolabel">
   <input type="submit" class="btpublicar" value="PUBLICAR AGORA!">
-  <div class="btatualizar"> ATUALIZAR! </div>
+  <input type="submit" class="btatualizar" value="ATUALIZAR!">
 </div>
 <div class="formaprecolabel2">
   <button> <img src="imgs/face.png" alt=""></button>
@@ -246,6 +247,8 @@
 
 </div>
 
-
+<script src="js/imagem.js"></script>
+  
+</body>
 
 </html>

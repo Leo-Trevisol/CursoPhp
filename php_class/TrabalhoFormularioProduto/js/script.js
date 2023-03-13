@@ -40,7 +40,7 @@ $(function () {
     });
 
 
-    
+
 
        //############## GET CEP
     $('.wc_getCep').on('change', function () {
@@ -93,6 +93,12 @@ $(function () {
     }
 
     if ($('.trigger-sucess').length) {
+        setTimeout(function (){
+            window.location.href= 'index.php?class=ProdutoList';
+        }, 2000);
+    }
+
+    if ($('.sair').length) {
         setTimeout(function (){
             window.location.href= 'index.php?class=ProdutoList';
         }, 2000);

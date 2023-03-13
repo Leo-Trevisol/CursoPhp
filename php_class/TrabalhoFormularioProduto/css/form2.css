@@ -194,6 +194,7 @@ color: red;
 
 .btatualizar{
     background-color: rgba(0, 128, 0, 0.664);
+    
 }
 
 .btpublicar{
@@ -213,3 +214,9 @@ color: red;
     background-color: blue;
 }
 
+#imagemProduto{
+    display: flex;
+    margin: auto;
+    width: 400px;
+    height: 200px; 
+}
