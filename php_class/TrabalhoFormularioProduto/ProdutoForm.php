@@ -153,6 +153,9 @@ class ProdutoForm{
 
     public function show()
     {
+
+        
+
         $this->html = str_replace(
             ['{id}', '{nome}', '{descricao}', '{tags}', '{link_alternativo}', '{codigo}', '{unidade_medida}', '{marca_fabricante}', '{categoria}', '{categorias_facebook}', '{categorias_google}', '{descricao_completa}', '{altura}', '{largura}', '{profundidade}', '{peso}', '{arquivo}',  '{preco_custo}', '{margem_lucro}', '{preco_cheio}', '{porcentagem_desconto}', '{preco_promocional}', '{inicio_promocao}', '{fim_promocao}', '{hotsite}'],
             [   
@@ -171,6 +174,7 @@ class ProdutoForm{
                 $this->data['altura'],
                 $this->data['largura'],
                 $this->data['profundidade'],
+                $this->data['peso'],
                 'http://localhost/Curso-Php/php_class/TrabalhoFormularioProduto/classes/uploads/' . $this->data['arquivo'],
                 $this->data['preco_custo'],
                 $this->data['margem_lucro'],
@@ -187,6 +191,7 @@ class ProdutoForm{
         //$this->html = str_replace($search, $this->data, $this->html);
         
         print  $this->html;
+
     }
 
 
