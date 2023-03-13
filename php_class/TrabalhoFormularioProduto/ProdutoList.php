@@ -33,7 +33,8 @@
                             '{id}', 
                             '{nome}',
                             '{categoria}',
-                              '{preco_cheio}'
+                              '{preco_cheio}',
+                              '{arquivo}'
                              
                         ],
                         [
@@ -41,7 +42,8 @@
                            $produto['id'],
                          $produto['nome'],
                            $produto['categoria'],
-                           $produto['preco_cheio']
+                           $produto['preco_cheio'],
+                           $produto['arquivo']
                    
                         ],
                         $row

@@ -39,6 +39,9 @@ $(function () {
         }
     });
 
+
+    
+
        //############## GET CEP
     $('.wc_getCep').on('change', function () {
         var cep = $(this).val().replace('-', '').replace('.', '');

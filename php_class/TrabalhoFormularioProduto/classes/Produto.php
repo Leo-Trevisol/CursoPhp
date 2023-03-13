@@ -59,7 +59,7 @@ class Produto{
     
                     $newfilename = time() . mb_strstr($fileupload['name'], '.');
 
-                    $file1 = (__DIR__ . "/uploads/" . $newfilename);
+                    $file1 = ($newfilename);
                     
                     if(in_array($fileupload['type'], $allowedtypes)){
                         if(move_uploaded_file($fileupload['tmp_name'], __DIR__ . "/uploads/{$newfilename}")){
@@ -81,6 +81,40 @@ class Produto{
                                
 
         } else {
+            $folder = __DIR__ . "/uploads";
+
+            if(!file_exists($folder) || !is_dir($folder)){
+                //MKDIR CRIA DIRETORIOS
+                mkdir($folder, 0755);
+            }
+    
+            $getpost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
+            
+            if($_FILES && !empty($_FILES['arquivo']['name'])){
+               
+                    $fileupload = $_FILES['arquivo'];
+                   
+    
+                    $allowedtypes = [
+                        'image/jpg',
+                        'image/jpeg',
+                        'image/png',
+                        'application/pdf'
+                    ];
+    
+                    $newfilename = time() . mb_strstr($fileupload['name'], '.');
+
+                    $file1 = ($newfilename);
+                    
+                    if(in_array($fileupload['type'], $allowedtypes)){
+                        if(move_uploaded_file($fileupload['tmp_name'], __DIR__ . "/uploads/{$newfilename}")){
+                        }
+                    }
+
+                }
+
+                $produto['arquivo'] = $file1;
+                
             $sql = "UPDATE produto SET nome = :nome, descricao = :descricao, tags = :tags, link_alternativo = :link_alternativo, codigo = :codigo, unidade_medida = :unidade_medida, marca_fabricante = :marca_fabricante, categoria = :categoria, categorias_facebook = :categorias_facebook, categorias_google = :categorias_google, descricao_completa = :descricao_completa, altura = :altura, largura = :largura, profundidade = :profundidade, peso = :peso, arquivo = :arquivo, preco_custo = :preco_custo, margem_lucro = :margem_lucro, preco_cheio = :preco_cheio, porcentagem_desconto = :porcentagem_desconto, preco_promocional = :preco_promocional, inicio_promocao = :inicio_promocao, fim_promocao = :fim_promocao, hotsite = :hotsite WHERE id = :id  ";
         }
         
