@@ -144,8 +144,8 @@ class Produto{
                 ':preco_cheio' => $produto['preco_cheio'],
                 ':porcentagem_desconto' => $produto['porcentagem_desconto'],
                 ':preco_promocional' => $produto['preco_promocional'],
-                ':inicio_promocao' =>  Check::DataBr($produto['inicio_promocao']),
-                ':fim_promocao' => Check::DataBr($produto['fim_promocao']),
+                ':inicio_promocao' =>  Check::Data($produto['inicio_promocao']),
+                ':fim_promocao' => Check::Data($produto['fim_promocao']),
                 ':hotsite' => $produto['hotsite']
             ]
         );

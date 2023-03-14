@@ -21,7 +21,7 @@ class ProdutoForm{
             'link_alternativo' => null,
             'codigo' => null,
             'unidade_medida' => self::options('unidade_medida'),
-            'marca_fabricante' => null,
+            'marca_fabricante' => self::options('marca_fabricante'),
             'categoria' => null,
             'categorias_facebook' => null,
             'categorias_google' => null,
@@ -157,7 +157,7 @@ class ProdutoForm{
         
 
         $this->html = str_replace(
-            ['{id}', '{nome}', '{descricao}', '{tags}', '{link_alternativo}', '{codigo}', '{unidade_medida}', '{marca_fabricante}', '{categoria}', '{categorias_facebook}', '{categorias_google}', '{descricao_completa}', '{altura}', '{largura}', '{profundidade}', '{peso}', '{arquivo}',  '{preco_custo}', '{margem_lucro}', '{preco_cheio}', '{porcentagem_desconto}', '{preco_promocional}', '{inicio_promocao}', '{fim_promocao}', '{hotsite}'],
+            ['{id}', '{nome}', '{descricao}', '{tags}', '{link_alternativo}', '{codigo}', '{unidade_medida}', '{marca_fabricante}', '{categoria}', '{categorias_facebook}', '{categorias_google}', '{descricao_completa}', '{altura}', '{largura}', '{profundidade}', '{peso}', /*'{arquivo}',*/  '{preco_custo}', '{margem_lucro}', '{preco_cheio}', '{porcentagem_desconto}', '{preco_promocional}', '{inicio_promocao}', '{fim_promocao}', '{hotsite}'],
             [   
                 $this->data['id'],
                 $this->data['nome'],
@@ -175,7 +175,7 @@ class ProdutoForm{
                 $this->data['largura'],
                 $this->data['profundidade'],
                 $this->data['peso'],
-                'http://localhost/Curso-Php/php_class/TrabalhoFormularioProduto/classes/uploads/' . $this->data['arquivo'],
+              /*  $this->data['arquivo'],*/
                 $this->data['preco_custo'],
                 $this->data['margem_lucro'],
                 $this->data['preco_cheio'],

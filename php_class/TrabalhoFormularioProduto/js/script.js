@@ -58,6 +58,38 @@ $(function () {
         }
     });
 
+    $('.wc_loadimage').change(function () {
+        var input = $(this);
+        var target = $('.' + input.attr('name'));
+        var fileDefault = target.attr('default');
+
+        if (!input.val()) {
+            target.fadeOut('fast', function () {
+                $(this).attr('src', fileDefault).fadeIn('slow');
+            });
+            return false;
+        }
+
+        if (this.files && (this.files[0].type.match("image/jpeg") || this.files[0].type.match("image/png"))) {
+            TriggerClose();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                target.fadeOut('fast', function () {
+                    $(this).attr('src', e.target.result).width('auto').fadeIn('fast');
+                    //$(this).attr('src', e.target.result).width('100%').fadeIn('fast');
+                });
+            };
+            reader.readAsDataURL(this.files[0]);
+        } else {
+            Trigger('<div class="trigger trigger_alert trigger_ajax"><b class="icon-warning">ERRO AO SELECIONAR:</b> O arquivo <b>' + this.files[0].name + '</b> não é válido! <b>Selecione uma imagem JPG ou PNG!</b></div>');
+            target.fadeOut('fast', function () {
+                $(this).attr('src', fileDefault).fadeIn('slow');
+            });
+            input.val('');
+            return false;
+        }
+    });
+
     //############## MASK INPUT
     if ($('.formDate').length || $('.formTime').length || $('.formCep').length || $('.formCpf').length || $('.formPhone').length || $('.formCnpj').length || $('.formPercent').length || $('.formMoney').length) {
 

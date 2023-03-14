@@ -178,9 +178,9 @@
 
         public static function DataBr($Data)
         {
+
             self::$Format = explode(' ', $Data);
             self::$Data = explode('-', self::$Format[0]);
-
             if (!checkdate(self::$Data[1], self::$Data[0], self::$Data[2])):
                 var_dump( $Data);
                 return false; else:
